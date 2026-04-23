@@ -1,3 +1,11 @@
+# ===============================
+# MichoudSport - Monorepo Gitignore
+# Rails API + React (Vite) + PostgreSQL
+# ===============================
+
+# ===============================
+# Ruby / Rails (backend)
+# ===============================
 *.gem
 *.rbc
 /.config
@@ -10,13 +18,196 @@
 /test/version_tmp/
 /tmp/
 
-# Used by dotenv library to load environment variables.
-# .env
+# Bundler
+/.bundle/
+/vendor/bundle
+/lib/bundler/man/
 
-# Ignore Byebug command history file.
+# Documentation
+/.yardoc/
+/_yardoc/
+/doc/
+/rdoc/
+
+# Rails specific
+/backend/log/*
+/backend/tmp/*
+!/backend/log/.keep
+!/backend/tmp/.keep
+/backend/tmp/pids/*
+/backend/tmp/cache/*
+/backend/tmp/sockets/*
+/backend/tmp/storage/*
+/backend/storage/*
+!/backend/storage/.keep
+/backend/public/uploads
+/backend/public/assets
+/backend/public/packs
+/backend/public/packs-test
+/backend/node_modules
+/backend/yarn-error.log
+/backend/.yarn-integrity
+
+# Rails credentials (keep .enc files, ignore keys)
+/backend/config/master.key
+/backend/config/credentials/*.key
+
+# Spring
+/backend/.spring
+
+# Bootsnap cache
+/backend/tmp/cache/bootsnap*
+
+# ===============================
+# Node / React / Vite (frontend)
+# ===============================
+node_modules/
+dist/
+dist-ssr/
+*.local
+.vite/
+.turbo/
+
+# Build outputs
+/frontend/build/
+/frontend/.next/
+/frontend/out/
+
+# Testing
+/frontend/coverage/
+
+# ===============================
+# Environment & Secrets
+# ===============================
+.env
+.env.*
+!.env.example
+!.env.sample
+.envrc
+
+# Rails encrypted credentials are safe, but not the keys
+*.key
+!config/credentials/*.yml.enc
+
+# ===============================
+# IDE & Editors
+# ===============================
+# VS Code / Cursor
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.cursor/
+*.code-workspace
+
+# JetBrains (RubyMine, WebStorm, etc.)
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Vim
+*.swp
+*.swo
+*~
+.vim/
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# Sublime Text
+*.sublime-workspace
+*.sublime-project
+
+# ===============================
+# OS Generated
+# ===============================
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+
+# Linux
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# ===============================
+# Docker
+# ===============================
+.docker/
+docker-compose.override.yml
+
+# ===============================
+# Database
+# ===============================
+*.sqlite3
+*.sqlite3-journal
+*.sqlite3-shm
+*.sqlite3-wal
+/backend/db/*.sqlite3
+/backend/db/*.sqlite3-*
+
+# PostgreSQL
+*.pgsql
+*.dump
+
+# ===============================
+# Debugging
+# ===============================
 .byebug_history
+.irb_history
+.pry_history
+.rdbg_history
 
-## Specific to RubyMotion:
+# ===============================
+# Logs
+# ===============================
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ===============================
+# Testing & CI
+# ===============================
+/coverage/
+.rspec_status
+/spec/fixtures/files/test_*
+capybara-*.html
+/cypress/screenshots/
+/cypress/videos/
+/playwright-report/
+/test-results/
+
+# ===============================
+# Misc
+# ===============================
+# RubyMotion (pas utilisé mais présent par défaut)
 .dat*
 .repl_history
 build/
@@ -24,33 +215,29 @@ build/
 build-iPhoneOS/
 build-iPhoneSimulator/
 
-## Specific to RubyMotion (use of CocoaPods):
-#
-# We recommend against adding the Pods directory to your .gitignore. However
-# you should judge for yourself, the pros and cons are mentioned at:
-# https://guides.cocoapods.org/using/using-cocoapods.html#should-i-check-the-pods-directory-into-source-control
-#
-# vendor/Pods/
-
-## Documentation cache and generated files:
-/.yardoc/
-/_yardoc/
-/doc/
-/rdoc/
-
-## Environment normalization:
-/.bundle/
-/vendor/bundle
-/lib/bundler/man/
-
-# for a library or gem, you might want to ignore these files since the code is
-# intended to run in multiple environments; otherwise, check them in:
-# Gemfile.lock
-# .ruby-version
-# .ruby-gemset
-
-# unless supporting rvm < 1.11.0 or doing something fancy, ignore this:
+# RVM
 .rvmrc
 
-# Used by RuboCop. Remote config files pulled in from inherit_from directive.
-# .rubocop-https?--*
+# rbenv
+.ruby-gemset
+
+# asdf
+.tool-versions
+
+# direnv
+.direnv/
+
+# Stripe CLI
+.stripe/
+
+# Mailcatcher / letter_opener
+/backend/tmp/letter_opener/
+
+# ActiveStorage variants cache
+/backend/tmp/active_storage/
+
+# Sidekiq
+sidekiq.pid
+
+# Foreman
+.foreman
